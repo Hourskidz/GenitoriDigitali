@@ -3,218 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I tuoi figli sono online - HOURSKIDZ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Playfair+Display:ital,wght@1,700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Hourskidz | I tuoi figli sono online. Tu ci sei? </title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --viola: #ABA0F2;
-            --beige: #F2B988;
-            --arancio: #F25A38;
-            --arancio-soft: #F29057;
-            --bianco: #ffffff;
+            --viola: #6b21a8;
+            --arancio: #f97316;
+            --crema: #fefce8;
             --nero: #1a1a1a;
+            --bianco: #ffffff;
+            --verde: #22c55e;
         }
 
-        * { box-sizing: border-box; }
-        body { font-family: 'Work Sans', sans-serif; margin: 0; background-color: var(--bianco); color: var(--nero); line-height: 1.6; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Space Grotesk', sans-serif; background-color: var(--crema); color: var(--nero); line-height: 1.4; overflow-x: hidden; }
         
-        /* Tipografia Bold & Design */
-        h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 0.85; text-transform: uppercase; color: var(--arancio); margin: 0; letter-spacing: -2px; }
-        h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--viola); margin: 2rem 0; }
-        h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 2px; color: var(--nero); margin-bottom: 1rem; }
-
-        header { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: var(--bianco); position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--nero); }
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }
-        nav a { text-decoration: none; color: var(--nero); font-weight: 600; margin-left: 20px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        .hero { min-height: 90vh; padding: 5% 5%; display: flex; flex-direction: column; justify-content: center; background-color: var(--beige); border-bottom: 2px solid var(--nero); }
-        .container { max-width: 1200px; margin: auto; padding: 4rem 5%; }
-        .underline {
-    border-bottom: 3px solid var(--arancio); /* Usa il colore della tua palette */
-    padding-bottom: 2px;
-    display: inline-block;
-    line-height: 1;
-}
+        /* HEADER - STILE STICKER RIDOTTO */
+        header { 
+            background: var(--viola); 
+            color: var(--bianco); 
+            padding: 80px 40px; 
+            /* Bordo ridotto da 10px a 5px */
+            border-bottom: 5px solid var(--nero);
+            text-align: left;
+        }
         
-        section { display: none; } 
-        section.active { display: block; animation: slideUp 0.6s ease-out; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .claim-box {
+            background: var(--arancio);
+            color: var(--bianco);
+            display: inline-block;
+            padding: 10px 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+            /* Bordo ridotto da 4px a 2px */
+            border: 2px solid var(--nero);
+            margin-bottom: 20px;
+            /* Ombra ridotta da 8px a 4px */
+            box-shadow: 4px 4px 0 var(--nero);
+        }
 
-        /* Box Layout Müesli Style */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 3rem; }
-        .content-box { background: var(--bianco); padding: 2.5rem; border: 2px solid var(--nero); box-shadow: 12px 12px 0px var(--viola); }
-        .content-box.alt { box-shadow: 12px 12px 0px var(--arancio-soft); }
+        h1 { font-size: 4.5rem; line-height: 0.9; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -2px; }
+        .subtitle { font-size: 1.5rem; font-weight: 300; opacity: 0.9; }
 
-        /* Tabelle Integrali */
-        .table-wrapper { overflow-x: auto; margin: 3rem 0; border: 2px solid var(--nero); }
-        table { width: 100%; border-collapse: collapse; background: var(--bianco); }
-        th { background: var(--nero); color: var(--bianco); text-align: left; padding: 1.2rem; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.8rem; }
-        td { padding: 1.2rem; border-bottom: 1px solid #eee; font-size: 0.95rem; vertical-align: top; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        .btn { display: inline-block; padding: 1.2rem 2.5rem; background: var(--nero); color: var(--bianco); text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 900; text-transform: uppercase; margin-top: 2rem; border: none; cursor: pointer; transition: 0.2s; }
-        .btn:hover { background: var(--arancio); transform: translate(-4px, -4px); box-shadow: 4px 4px 0px var(--nero); }
+        /* TITOLI SEZIONE */
+        h2 { 
+            font-size: 3rem; 
+            color: var(--nero); 
+            margin: 60px 0 30px; 
+            text-transform: uppercase; 
+            background: var(--bianco);
+            display: inline-block;
+            padding: 5px 15px;
+            /* Bordo ridotto da 5px a 2.5px */
+            border: 2.5px solid var(--nero);
+            box-shadow: 8px 8px 0 var(--arancio);
+        }
 
-        /* Reveal Section */
-        #reveal-zone { background: var(--nero); color: var(--bianco); padding: 6rem 5%; text-align: center; }
-        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 4rem 0; }
-        .data-item { border: 1px solid rgba(255,255,255,0.2); padding: 2rem; }
-        .data-label { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 2px; color: var(--beige); display: block; margin-bottom: 1rem; }
-        .data-val { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: var(--bianco); }
+        /* CARD */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        
+        .card { 
+            background: var(--bianco); 
+            padding: 35px; 
+            /* Bordo ridotto da 6px a 3px */
+            border: 3px solid var(--nero); 
+            transition: 0.2s; 
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+        }
+        .card:nth-child(odd) { border-radius: 60px 0 60px 0; transform: rotate(1deg); }
+        .card:nth-child(even) { border-radius: 0 60px 0 60px; transform: rotate(-1deg); }
+        .card:hover { transform: rotate(0deg) scale(1.03); box-shadow: 15px 15px 0 var(--viola); }
 
-        footer { background: #f9f9f9; padding: 4rem 5%; border-top: 2px solid var(--nero); font-size: 0.85rem; }
-        .footer-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .tag { 
+            background: var(--nero); 
+            color: var(--bianco); 
+            padding: 5px 12px; 
+            font-weight: 700; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            margin-bottom: 15px; 
+            width: fit-content; 
+        }
 
-        @media (max-width: 768px) { .footer-cols { grid-template-columns: 1fr; } h1 { font-size: 3rem; } }
+        .btn-more { 
+            margin-top: 25px; 
+            background: var(--arancio); 
+            color: var(--bianco); 
+            /* Bordo ridotto da 4px a 2px */
+            border: 2px solid var(--nero); 
+            padding: 15px; 
+            font-family: inherit; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            cursor: pointer; 
+            /* Ombra ridotta da 5px a 3px */
+            box-shadow: 3px 3px 0 var(--nero);
+        }
+        .btn-more:hover { background: var(--viola); transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--nero); }
+
+        /* MODALE */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(107, 33, 168, 0.9); backdrop-filter: blur(10px); }
+        .modal-content { 
+            background: var(--crema); margin: 2% auto; padding: 50px; 
+            /* Bordo ridotto da 8px a 4px */
+            border: 4px solid var(--nero); 
+            width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; border-radius: 40px; position: relative;
+            /* Ombra ridotta da 20px a 10px */
+            box-shadow: 10px 10px 0 var(--nero);
+        }
+        .close { position: absolute; right: 25px; top: 10px; font-size: 60px; cursor: pointer; color: var(--nero); font-weight: 700; }
+        .modal-body h3 { font-size: 3rem; color: var(--viola); text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
+        .modal-body h4 { background: var(--arancio); color: #fff; display: inline-block; padding: 5px 10px; margin: 25px 0 10px; text-transform: uppercase; }
+        .modal-body p, .modal-body li { font-size: 1.2rem; margin-bottom: 15px; }
+        .modal-body a { color: var(--viola); font-weight: 700; text-decoration: none; border-bottom: 3px solid var(--arancio); }
+
+        /* TASTO PDF NEL PATTO */
+        .btn-pdf {
+            background: var(--verde);
+            color: white;
+            /* Bordo ridotto da 4px a 2px */
+            border: 2px solid var(--nero);
+            padding: 15px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 30px;
+            /* Ombra ridotta da 6px a 3px */
+            box-shadow: 3px 3px 0 var(--nero);
+        }
+
+        /* REVEAL & FOOTER */
+        footer { background: var(--nero); color: var(--bianco); padding: 80px 40px; margin-top: 100px; }
+        #reveal-box { background: #111; padding: 30px; border: 3px solid #0f0; font-family: monospace; color: #0f0; font-size: 1.1rem; margin: 30px 0; line-height: 1.8; }
+
+        /* PRINT STYLES */
+        @media print {
+            body * { visibility: hidden; }
+            #modalBody, #modalBody * { visibility: visible; }
+            #modalBody { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; background: white !important; }
+            .btn-pdf, .close { display: none !important; }
+            h4 { color: black !important; border: 1px solid black; padding: 5px; }
+        }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">HOURSKIDZ</div>
-    <nav>
-        <a href="#" onclick="showPage('home')">Home</a>
-        <a href="#" onclick="showPage('roblox')">Roblox</a>
-        <a href="#" onclick="showPage('youtube')">YouTube</a>
-        <a href="#" onclick="showPage('navigare')">Navigare Insieme</a>
-        <a href="#" onclick="showPage('bibliografia')">Bibliografia</a>
-        <a href="#" onclick="showPage('reveal')" style="color:var(--arancio)">Reveal</a>
-    </nav>
+    <div class="claim-box">Navigare sicuri nel mondo digitale</div>
+    <h1>Hourskidz<br></h1>
+    <p class="subtitle">I tuoi figli sono online, tu lo sei?</p>
 </header>
 
-<main>
-    <section id="home" class="active">
-        <div class="hero">
-            <h1>I tuoi figli<br>sono online.<br>Tu ci sei?</h1>
-            <p>Guida pratica su Roblox, YouTube e consapevolezza dei dati per genitori di bambini di 8-10 anni.</div> <div class="container">
-            <h2>Navigare insieme.</h2>
-            <p>I nostri figli crescono con piattaforme che spesso fatichiamo a comprendere. Questo sito è una bussola per proteggerne la privacy e stimolare lo sviluppo di un pensiero critico e consapevole.<p> Ma non solo: ti mostreremo, in tempo reale, quanto di te stesso hai già condiviso con noi.</p>
-            
-            <button class="btn" onclick="showPage('roblox')">Inizia il percorso</button>
-        </div>
-    </section>
-
-    <section id="roblox">
-        <div class="container">
-            <h1>Roblox</h1>
-            <h2>Oltre il semplice gioco.</h2>
-            <div class="grid">
-                <div class="content-box">
-                    <h3>Cos'è?</h3>
-                    <p>Non è un singolo videogioco, ma una piattaforma di creazione e condivisione. Immaginatelo come un enorme "centro commerciale" digitale dove ogni negozio è un gioco diverso (chiamato "Experience") creato dagli utenti stessi tramite Roblox Studio (strumento che ricalca i software di creazione e animazione 3d).</p>
-                </div>    
-                <div class="content-box alt">
-                    <h3>Statistiche e Utenti attivi</h3>
-                    <p><span class="underline">Utenti Attivi:</span> Circa 150-160 milioni di utenti giornalieri a livello globale.<p><span class="underline">Target:</span> Circa il 30% degli utenti ha meno di 13 anni.<p><span class="underline">Contenuti:</span> Oltre 40 milioni di giochi, dai simulatori di vita quotidiana (gestire una pizzeria) a mondi horror o di ruolo.</p>
-                </div>
-                <div class="content-box">
-                    <h3>Cosa aspettarsi a 8-10 anni (Fase "Tween")</h3>
-                    <p>A questa età i bambini sono molto sensibili alla dimensione sociale: cercano di connettersi con gli amici e di costruire una propria identità digitale unica.<p><span class="underline">Socialità e Influenza:</span> Il desiderio di giocare in gruppo è forte, così come l'influenza dei coetanei sugli acquisti nel gioco. <p><span class="underline">Indipendenza:</span>  Manifestano il bisogno di scegliere autonomamente a cosa giocare e come spendere i propri Robux.</p>
-                </div>    
-                <div class="content-box alt">
-                    <h3>Spunti di conversazione e Attività insieme</h3>
-                    <p>Invece di limitarti a controllare, usa questi approcci per sviluppare il loro pensiero critico. <p><span class="underline">Valutazione:</span> Chiedi "Come decidi se un gioco vale la pena di essere provato?". Questo li aiuta a riflettere sui propri criteri di scelta.<p><span class="underline">Coinvolgimento:</span> Chiedi "Mostrami la cosa più forte che hai creato o fatto su Roblox ultimamente!". Lascia che condividano i loro successi; aprirà la porta a discussioni sulla sicurezza in modo naturale.<p><span class="underline">Attività pratica:</span> Chiedi di mostrarti come scelgono i giochi o come personalizzano il proprio avatar. Mostrare interesse per le loro scelte creative dimostra che tieni a ciò che amano, rendendoti un alleato e non solo un controllore.</p>
-                </div>
-            </div>
-            
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr><th>Rischio</th><th>Azione Suggerita per il Genitore</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Contenuti Inappropriati (stanze "Condo" - stanze a tema sessuale o violento).</td><td>Controlla le valutazioni dell'esperienza e usa i filtri dei contenuti.</td></tr>
-                        <tr><td>Socializzazione con Estranei (Grooming)</td><td>Imposta l'account come "Under 13" e limita la chat agli amici fidati.Senza questa impostazione, molte funzioni di sicurezza automatiche non si attiveranno. Non utilizzare dati reali nel nickname (es. non utilizzare nome, cognome e/o data di nascita).</td></tr>
-                        <tr><td>Spesa Inconsapevole</td><td>Disabilita gli acquisti in-app o imposta un PIN di sicurezza per le transazioni. Pianifica gli acquisti e applica gli stessi principi di educazione finanziaria che applichi nella vita reale.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn" onclick="showPage('youtube')">Passa a YouTube</button>
-        </div>
-    </section>
-
-    <section id="youtube">
-        <div class="container">
-            <h1>YouTube</h1>
-            <h2>L'algoritmo del desiderio.</h2>
-            <div class="grid">
-               
-                    <div class="content-box">
-                    <h3>Navigare nel mare dei video</h3>
-                    <p><span class="underline">Cos’è YouTube?</span> La più grande piattaforma di video sharing al mondo. Per i bambini di 9 anni, si divide solitamente in YouTube Kids (app dedicata ai più piccoli) e YouTube con supervisione (l'app standard con filtri attivati dai genitori).</p>
-                </div>
-                 <div class="content-box alt">
-                    <h3>Statistiche e Utenti</h3>
-                    <p><span class="underline">Diffusione:</span> Oltre 2.7 miliardi di utenti mensili. È la piattaforma preferita dai bambini per l'intrattenimento.<p><span class="underline">Target:</span> Universale. Per i 9 anni, il profilo ideale è la modalità "Esplora" (contenuti adatti a 9+ anni).<p><span class="underline">Contenuti:</span> Tutorial, gameplay di videogiochi, cartoni animati, vlog e i popolari YouTube Shorts (video brevi e molto coinvolgenti).</p>
-                </div>
-                <div class="content-box">
-                    <h3>Raccolta Dati e Privacy</h3>
-                    <p><span class="underline">Come funziona:</span> Google (proprietaria di YouTube) utilizza algoritmi sofisticati per tracciare gli interessi e proporre video simili. <p><span class="underline">Dati tracciati:</span> Cronologia delle ricerche, video guardati, tempo di permanenza su un video, posizione geografica approssimativa e dati del dispositivo.<p><span class="underline">Nota legale:</span> A seguito di recenti accordi legali (2026), YouTube ha limitato drasticamente la pubblicità personalizzata sui contenuti per bambini, ma il tracciamento tecnico per il funzionamento dell'algoritmo rimane attivo. Fonti: YouTube Kids Privacy Notice, Google Safety Center (2026).</p>
-                </div>
-                 <div class="content-box alt">
-                    <h3>Identità personale</h3>
-                    <p>Esporre un bambino come protagonista di video su YouTube emulando gli influencer comporta diversi rischi che vanno oltre la semplice gestione tecnica dell'account.<p><span class="underline">Dipendenza da feedback (Like/Commenti):</span> L'emulazione degli influencer sposta il valore del bambino dal "sé reale" al "sé digitale". La ricerca ossessiva di approvazione tramite like può generare ansia da prestazione e un senso di fallimento se i numeri non raggiungono le aspettative.<p><span class="underline">Alterazione dell'autostima e Depressione:</span> Il confronto costante con standard di bellezza e successo irreali (spesso filtrati o costruiti) può portare a una profonda insoddisfazione per la propria vita quotidiana, aumentando il rischio di sintomi depressivi e isolamento sociale già in età prepuberale.<p><span class="underline">Sovrastimolazione e Soglia di Attenzione:</span> La fruizione e creazione di contenuti brevi (come gli Shorts) basati sulla gratificazione istantanea altera i circuiti della dopamina. Questo può causare irritabilità, difficoltà di concentrazione e una "fame" di stimoli digitali che sottrae spazio al riposo e alla riflessione.</p>
-                </div>
-                </div>
-                 
-             <div class="table-wrapper">
-                  <table>
-                    <thead>
-                        <tr><th>Rischio</th><th>Azione Suggerita per il Genitore</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Algoritmo "Rabbit Hole". L'algoritmo è progettato per tenere l'utente incollato. Un bambino può passare da un video educativo a contenuti inappropriati o bizzarri in pochi clic.</td><td>Attivare la "Modalità con Supervisione" (impostazione "Esplora") o utilizzare l'app YouTube Kids, che applicano filtri sui contenuti e limitano la possibilità per l'algoritmo di proporre video inappropriati in pochi clic.</td></tr>
-                        <tr><td>YouTube Shorts</td><td>Stabilire limiti di tempo quotidiani chiari attraverso strumenti di Parental Control per bilanciare la gratificazione istantanea dei video brevi e proteggere la soglia di attenzione del bambino.</td></tr>
-                        <tr><td>Sfide Pericolose (Challenges)</td><td>Sviluppare il pensiero critico ponendo domande come "Perché questo video ci suggerisce proprio questa sfida?", aiutando il bambino a distinguere tra un gioco sicuro e un comportamento rischioso emulato solo per ottenere popolarità. Disincentivare la visione di questo tipo di contenuti attraverso queste riflessioni.</td></tr>
-                        <tr><td>Commenti</td><td>Monitorare la navigazione privilegiando le versioni protette che disabilitano o filtrano i commenti, evitando così l'esposizione a linguaggio volgare o potenziali episodi di cyberbullismo.</td></tr>
-                    </tbody>
-                </table>
+<div class="container">
     
-             </div>
-             <button class="btn" onclick="showPage('navigare')">Navigare insieme</button>
+    <section id="home">
+        <div style="background: var(--bianco); border: 3px solid var(--nero); padding: 40px; border-radius: 40px; box-shadow: 8px 8px 0 var(--arancio);">
+            <h2 style="margin-top: 0; font-size: 2rem; border: none; box-shadow: none; padding: 0;">Perché siamo qui</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 20px;">Viviamo in un mondo connesso. I nostri figli crescono con schermi e piattaforme che noi stessi fatichiamo a comprendere. Questo sito è una guida pratica per navigare insieme a loro, proteggendone la privacy e stimolando il loro pensiero critico. </p>
+            <p>Ma non solo: ti mostreremo, in tempo reale, quanto di te stesso hai già condiviso con noi.</p>
         </div>
     </section>
 
-    <section id="navigare">
-        <div class="container">
-            <h1>Navigare insieme</h1>
-            <p><strong>Obiettivo:</strong> Proteggere la privacy dei minori e garantire una crescita digitale sicura, promuovendo il pensiero critico.</p>
+    <h2>🕹️ Area Giochi</h2>
+    <div class="grid">
+        <article class="card">
+            <span class="tag">Roblox</span>
+            <h3>Avatar, Robux e mondi infiniti</h3>
+            <p>Roblox non è un singolo videogioco, ma una piattaforma di creazione e condivisione. Immaginatelo come un enorme "centro commerciale" digitale dove ogni negozio è un gioco diverso (chiamato "Experience") creato dagli utenti stessi tramite Roblox Studio (strumento che ricalca i software di creazione e animazione 3d).</p>
+            <button class="btn-more" onclick="openModal('roblox')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Brawl Stars</span>
+            <h3>La sfida della competizione e dei "Club"</h3>
+            <p>Brawl Stars è un gioco d'azione "freemium" per smartphone prodotto da Supercell. I giocatori scelgono dei personaggi (Brawler) per sfidarsi in diverse modalità di combattimento in tempo reale, solitamente 3 contro 3. Classificato PEGI 7 per violenza lieve.</p>
+            <button class="btn-more" onclick="openModal('brawl')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Fortnite</span>
+            <h3>Da Battle Royale a Piazza sociale</h3>
+            <p>Nato come un gioco di sopravvivenza (Battle Royale), Fortnite si è evoluto in un una piattaforma sociale persistente, ospitando migliaia di mondi diversi: dalle sfide competitive ai concerti live, fino a modalità creative come LEGO Fortnite, progettata specificamente per attirare un pubblico più giovane (dai 7 anni in su).</p>
+            <button class="btn-more" onclick="openModal('fortnite')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Minecraft</span>
+            <h3>Gioco, creatività e apprendimento</h3>
+            <p>È il videogioco "sandbox" (senza obiettivi predefiniti) più venduto al mondo. I giocatori estraggono risorse e costruiscono strutture in un mondo infinito di blocchi. Sebbene sia celebre per la sua valenza educativa (usato nelle scuole per insegnare coding e architettura nella versione Education), la sua natura online richiede attenzione nella gestione.</p>
+            <button class="btn-more" onclick="openModal('minecraft')">Scheda Integrale</button>
+        </article>
+    </div>
 
-            <h2> Oltre la Gestione degli Account</h2>
-            <div class="grid">
-                <div class="content-box">
-                    <h3>Identità Digitale vs. Proprietà Tecnica</h3>
-                    <p>Perché abbiamo creato queste schede informative?<p><span class="underline">Identità Digitale vs. Proprietà Tecnica:</span> Spesso pensiamo che un account "a nome del genitore" sia una protezione sufficiente. Tuttavia, per gli algoritmi e per il pubblico, ciò che conta è chi appare nel video, non chi ha registrato l'email. L'impronta digitale che creiamo oggi per i nostri figli rimarrà per sempre.<p><span class="underline">Dalla Realtà Virtuale al Mondo Reale:</span>  Il confine tra online e offline è sempre più sottile. Invitare follower o sconosciuti a incontri fisici (anche per motivi ludici o educativi) espone i minori a rischi di geolocalizzazione e contatto che vanno oltre il controllo di un filtro famiglia.<p><span class="underline">Consapevolezza degli Strumenti:</span>  Roblox e YouTube non sono solo "contenitori di video o giochi", ma ecosistemi sociali complessi. Capire come funzionano ci permette di educare i nostri figli a un uso critico, evitando che diventino involontariamente vulnerabili.<p><span class="underline">Il Ruolo del Genitore:</span>  Il nostro compito non è solo monitorare, ma fare da filtro. Queste schede servono a fornirvi i dati tecnici necessari per impostare limiti di privacy corretti e per dialogare con i bambini sui pericoli della sovraesposizione.</p>
-                </div>
-                <div class="content-box alt">
-                    <h3>Favorire lo sviluppo del Pensiero Critico</h3>
-                    <p>A questa età, i bambini iniziano a passare dal pensiero concreto a quello astratto. Non serve vietare, serve insegnare a dubitare.<p><span class="underline">La tecnica del "Perché secondo te?":</span>  Se guardate un video insieme, chiedi: "Perché questo YouTuber urla così tanto?" o "Perché ci suggerisce proprio questo gioco?". Aiutalo a capire che dietro ogni contenuto c'è un obiettivo (visite, vendite, popolarità).<p><span class="underline">Smontare la "Perfezione":</span>  Mostra come un filtro può cambiare un volto o come un video di Roblox sia montato per sembrare più divertente di quanto non sia. Insegnagli che l'online è una scelta di momenti, non la realtà completa.<p><span class="underline">Analisi delle Intenzioni:</span>  Se un utente in chat regala "oggetti rari", chiedi al bambino: "Cosa potrebbe volere in cambio?". Allena il suo istinto a riconoscere che nel mondo digitale (come in quello reale) non tutto è un regalo disinteressato.</p>
-                </div>
-            </div>
-            <h2>Cosa prevede la legge italiana?</h2>
-            <p>In Italia, la normativa di riferimento è il D.Lgs. 101/2018 (che ha adeguato il GDPR europeo) e le recenti integrazioni sulla sicurezza dei minori online.</p>Nota importante: Sebbene le piattaforme (Roblox/YouTube) permettano l'accesso dai 13 anni (standard USA), la legge italiana è più restrittiva (14 anni per l'autonomia). Sotto i 14 anni, il genitore deve essere il "gestore" attivo dell'esperienza digitale.</p>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr><th>Punto Chiave</th><th>Cosa prevede la Legge</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Età per il Consenso</td><td>In Italia la "maggiore età digitale" è fissata a 14 anni. Sotto questa età, un minore non può legalmente iscriversi a un social senza il consenso dei genitori.</td></tr>
-                        <tr><td>Responsabilità Genitoriale</td><td>Se un genitore crea un account a proprio nome per un figlio di 9 anni, ne assume la piena responsabilità civile e penale per i contenuti pubblicati e le azioni compiute dal minore.</td></tr>
-                        <tr><td>Privacy e Volto</td><td>Pubblicare il volto di un minore (sharenting) richiede il consenso di entrambi i genitori. Se i video espongono il bambino a rischi, il tribunale può intervenire per limitare la pubblicazione.</td></tr>
-                        <tr><td>Contratti Nulli</td><td>I Termini di Servizio accettati da un bambino di 9 anni sono legalmente nulli.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <button class="btn" onclick="showPage('bibliografia')">Vai alla Bibliografia</button>
+    <h2>📱 Area Social</h2>
+    <div class="grid">
+        <article class="card">
+            <span class="tag">YouTube</span>
+            <h3>Dal Rabbit Hole alla gestione della privacy</h3>
+            <p>La più grande piattaforma di video sharing al mondo. Per i bambini di 9 anni, si divide solitamente in YouTube Kids (app dedicata ai più piccoli) e YouTube con supervisione (l'app standard con filtri attivati dai genitori).</p>
+            <button class="btn-more" onclick="openModal('youtube')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">TikTok</span>
+            <h3>Come proteggere la soglia di attenzione</h3>
+            <p>TikTok è una piattaforma di social media basata sulla creazione e fruizione di video brevi (da pochi secondi a 10 minuti). Il suo cuore pulsante è la sezione "Per Te" (For You Page): un flusso infinito di contenuti selezionati da un'intelligenza artificiale estremamente raffinata che impara i gusti dell'utente in tempo reale. Sebbene l'età minima sia 13 anni, milioni di bambini tra gli 8 e i 10 anni vi accedono quotidianamente direttamente o indirettamente.</p>
+            <button class="btn-more" onclick="openModal('tiktok')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Instagram</span>
+            <h3>Confronto sociale e Reels</h3>
+            <p>Instagram è il social network visuale per eccellenza, nato per le foto e oggi dominato dai Reels (video brevi simili a TikTok). Per un bambino di 9 anni, Instagram rappresenta il mondo dei "grandi": è il luogo dove cercano di imitare gli influencer, i calciatori o i cantanti preferiti, costruendo un’immagine di sé spesso filtrata e idealizzata.</p>
+            <button class="btn-more" onclick="openModal('instagram')">Scheda Integrale</button>
+        </article>
+    </div>
+
+    <h2>🛠️ Strumenti</h2>
+    <div class="grid">
+        <article class="card" style="border-color: var(--verde);">
+            <span class="tag" style="background: var(--verde);">Firma il Patto</span>
+            <h3>Patto Digitale</h3>
+            <p>Suggerimenti per un gentle agreement tra genitori e figli basato sulla fiducia.</p>
+            <button class="btn-more" onclick="openModal('patto')" style="background: var(--verde);">Apri e Stampa</button>
+        </article>
+        <article class="card">
+            <span class="tag">Strategie</span>
+            <h3>Navigare Insieme</h3>
+            <p>Obiettivo: Proteggere la privacy dei minori e garantire una crescita digitale in un ambiente controllato e sicuro, promuovendo attivamente lo sviluppo di un pensiero critico e consapevole.</p>
+            <button class="btn-more" onclick="openModal('navigare')">Leggi Strategie</button>
+        </article>
+        <article class="card">
+            <span class="tag">Fonti</span>
+            <h3>Bibliografia</h3>
+            <p>Link ufficiali, utilities e normative aggiornate al 02/2026.</p>
+            <button class="btn-more" onclick="openModal('biblio')">Vedi Link</button>
+        </article>
+    </div>
+
+</div>
+
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody" class="modal-body"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="container" style="padding:0;">
+        <h3 style="color:var(--arancio); text-transform:uppercase;">🔎 Esperimento REVEAL</h3>
+        <p>Mentre consultavi questa guida, il tuo dispositivo ha comunicato questi dati:</p>
+        <div id="reveal-box">
+            > INDIRIZZO IP: <span id="u-ip">Rilevamento...</span><br>
+            > LOCALITÀ: <span id="u-city">Rilevamento...</span><br>
+            > DISPOSITIVO: <span id="u-dev">Rilevamento...</span><br>
+            > STATO: Navigazione monitorata per scopi educativi.
         </div>
-    </section>
-    
-    <section id="bibliografia">
-    <div class="container">
-        <h1>Bibliografia</h1>
-        <h2>Risorse e approfondimenti per la sicurezza digitale</h2>
+        <p style="font-size: 0.8rem; opacity: 0.5;">LIBERATORIA: I dati del reveal sono elaborati tramite API pubbliche (ipapi.co) e non vengono salvati su server. Questa funzione ha scopo puramente didattico.
+Proteggere la privacy dei minori significa garantire una crescita consapevole in un ambiente sicuro.
+© 2026 HOURSKIDZ Progetto Genitori Digitali.</p>
+    </div>
+</footer>
+
+<script>
+    const content = {
+       
+        roblox: `<h3>🤖 Roblox: Deep Dive</h3>
+        <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Utenti Attivi:</strong>  Circa 150-160 milioni di utenti giornalieri a livello globale.<p>
+        <p><strong>Target:</strong> Circa il 30% degli utenti ha meno di 13 anni.<p>
+        <p><strong>Contenuti:</strong> Oltre 40 milioni di giochi, dai simulatori di vita quotidiana (gestire una pizzeria) a mondi horror o di ruolo.</p>
+        <h4>Privacy & Dati </h4>
+        <p>I dati servono a personalizzare l'esperienza e per la pubblicità.<p>
+        <p><strong>Dati tracciati:</strong>  Indirizzo IP, ID dispositivo, cronologia giochi, acquisti (Robux), messaggi in chat (filtrati) e, dal 2026, stime dell'età tramite video-selfie per funzioni avanzate.</p>
+        <h4>Rischi e mitigazione</h4>
+        <p><strong>Contenuti inappropriati  (stanze "Condo" - stanze a tema sessuale o violento):</strong> Controlla le valutazioni dell'esperienza e usa i filtri dei contenuti.
+        <p><strong>Socializzazione con Estranei (Grooming): </strong>Imposta l'account come "Under 13" e limita la chat agli amici fidati.Senza questa impostazione, molte funzioni di sicurezza automatiche non si attiveranno. Non utilizzare dati reali nel nickname (es. non utilizzare nome, cognome e/o data di nascita).
+        <p><strong>Spesa inconsapevole: </strong>Disabilita gli acquisti in-app o imposta un PIN di sicurezza per le transazioni. Pianifica gli acquisti e applica gli stessi principi di educazione finanziaria che applichi nella vita reale.</p>
+        <h4>Spunti di conversazione</h4>
+        <p>Invece di limitarti a controllare, usa questi approcci per sviluppare il loro pensiero critico.<p>
+        <p><strong>Valutazione:</strong> Chiedi "Come decidi se un gioco vale la pena di essere provato?". Questo li aiuta a riflettere sui propri criteri di scelta.<p>
+        <p><strong>Coinvolgimento: </strong>Chiedi "Mostrami la cosa più forte che hai creato o fatto su Roblox ultimamente!". Lascia che condividano i loro successi; aprirà la porta a discussioni sulla sicurezza in modo naturale.<p>
+        <p><strong>Attività pratica: </strong>Chiedi di mostrarti come scelgono i giochi o come personalizzano il proprio avatar. Mostrare interesse per le loro scelte creative dimostra che tieni a ciò che amano, rendendoti un alleato e non solo un controllore.</p>`,
+       
+        brawl: 
+        `<h3>🌵 Brawl Stars: La Competizione</h3>
+        <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Utenti attivi: </strong>La fascia 8-12 anni rappresenta il segmento di crescita più rapido. In Italia, circa il 60% dei bambini che possiede uno smartphone ha installato o giocato a Brawl Stars negli ultimi 12 mesi.</p>
+        <p><strong>Tempi di utilizzo: </strong>La sessione media è breve (7-10 minuti), ma la frequenza di accesso è altissima (media di 4-5 volte al giorno), stimolata dalle ricompense quotidiane "scadenza 24h".</p>
+        <h4>Privacy & Dati</h4>
+        <p><strong>Dati tracciati: </strong>ID del dispositivo, indirizzo IP, cronologia degli acquisti e logs delle chat di "Club".<p>
+        <p><strong>Supercell ID: </strong>Permette di salvare i progressi, ma collega l'account a un'email. Se il bambino usa la propria, inizia a costruire la sua impronta digitale commerciale.</p>
+        <h4>Fase tween</h4>
+        <p><strong>Bisogno di appartenenza: </strong>A 9 anni, far parte del "Club" della classe è un rito sociale. L'esclusione dal gioco o il non possedere un determinato Brawler "Leggendario" può essere percepito dal bambino come una vera esclusione dal gruppo dei pari.<p>
+        <p><strong>Il collezionismo: </strong>La fase "Tween" è caratterizzata dal desiderio di collezionare. Il gioco sfrutta questo impulso proponendo "Skin" a tempo limitato o nuovi Brawler. A 8-10 anni, il concetto di "valore del denaro reale" è ancora astratto, rendendo il bambino vulnerabile alle microtransazioni.<p>
+        <p><strong>Identità digitale: </strong> Iniziano a curare il proprio profilo (nome, icone, brawler preferiti) come estensione della propria personalità. È il momento ideale per iniziare a parlare di quanto tempo e quanta importanza dare a questa "immagine virtuale".</p>
+        <h4>Rischi e mitigazione</h4>
+        <p><strong>Meccaniche "Pay-to-Win": </strong>Il gioco spinge costantemente all'acquisto di gemme per sbloccare Brawler più forti o "Skin" estetiche. Questo crea pressione sociale: chi non ha l'ultimo personaggio si sente escluso.<p>
+        <p><strong>Gestione della sconfitta: </strong>Le partite rapide e la perdita di "trofei" in caso di sconfitta possono generare forte irritabilità.<p>
+        <p><strong>Chat di Club: </strong>Sebbene filtrata a seconda dell’età impostata, la chat permette ai bambini di entrare in gruppi (chiamati "Club") con estranei di qualsiasi età.</p>
+        <h4>Parental Control</h4>
+        <p>Supercell non ha un pannello di controllo genitori "esterno" (come Google Family Link), ma offre strumenti integrati fondamentali.<p>
+        <p><strong>Impostazione dell'età: </strong>Al primo avvio, il gioco chiede l'età. Inserire l'età reale (9 anni) è cruciale: Supercell disabiliterà automaticamente alcune funzioni di chat e limiterà la raccolta dati per i minori.<p>
+        <p><strong>Filtro Chat: </strong>Nelle impostazioni è possibile attivare un filtro per il linguaggio offensivo. Tuttavia, il modo migliore per proteggerli è creare un "Club" privato solo per gli amici di scuola, dove voi genitori potete monitorare l'ambiente.<p>
+        <p><strong>Blocco acquisti: </strong>Non esiste un tasto "disabilita acquisti" nel gioco. La gestione deve avvenire tramite lo store del telefono. Su Android: Impostate la "Richiesta di autenticazione per gli acquisti" su Google Play. Su iOS: Attivate "Chiedi l'approvazione" tramite la funzione In Famiglia di Apple.</p>
+        <p><strong>Tempo di gioco: </strong>Supercell collabora con le funzioni di "Benessere Digitale" (Android) e "Tempo di utilizzo" (iOS). Potete impostare un limite massimo di 30-40 minuti al giorno, oltre i quali l'app si blocca.</p>
         
-        <div class="table-wrapper">
+        `,
+        fortnite: `<h3>🎮 Fortnite: Piazza Sociale</h3>
+       <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Utenti: </strong>Superati i 650 milioni di account registrati a livello globale.La fascia 8-12 anni è la più attiva in termini di ore giornaliere medie (circa 90 minuti nei giorni feriali, oltre 3 ore nel weekend).</p>
+        <h4>Privacy & Dati</h4>
+        <p><strong>Chat vocale aperta: </strong>Anche se filtrata da IA, la chat vocale espone il minore a linguaggi aggressivi, bullismo o tentativi di adescamento da parte di utenti più grandi.<p>
+        <p><strong>Profilazione commerciale: </strong>Epic Games traccia meticolosamente le preferenze estetiche e le abitudini di gioco per proporre acquisti mirati nel "Negozio Oggetti"<p>
+        <p><strong>Raccolta dati: </strong>Raccolta di ID dispositivo, indirizzo IP e metadati delle sessioni per analisi comportamentali.</p>
+        <h4>Fase Tween</h4>
+        <p><strong>Le Skin: </strong>Nel mondo di Fortnite, la tua "pelle" (Skin) dice chi sei. I bambini che usano la skin base gratuita possono venire derisi e chiamati "Default" o "Nabbetti". Questa pressione sociale spinge i figli a richiedere l'acquisto di V-Bucks (valuta virtuale in uso nel gioco) non per giocare meglio, ma per non essere emarginati dal gruppo classe virtuale. È una forma di consumo vistoso trasposta nel digitale.<p>
+        <p><strong>FOMO: </strong>Gli eventi "unici" (concerti di artisti famosi o cambi di stagione) avvengono in orari precisi. Il bambino può provare un'ansia reale (Fear Of Missing Out) se non può partecipare, temendo di essere escluso dalle conversazioni del giorno dopo a scuola.</p>
+        <h4>Parental Control</h4>
+        <p>Epic Games ha introdotto gli <strong>"Account Limitati" (Cabined Accounts): </strong> se l'utente dichiara meno di 13 anni, il sistema blocca automaticamente alcune funzioni finché il genitore non interviene.<p>
+        <p><strong>Filtro linguaggio maturo: </strong>Attiva il filtro per nascondere le parolacce nella chat testuale.<p>
+        <p><strong>Chat vocale: </strong>Impostala su "Solo Amici" o "Nessuno". Mai su "Tutti".<p>
+        <p><strong>Autorizzazione acquisti: </strong> Attiva la richiesta del PIN per ogni transazione economica.</p>`,
+       
+        minecraft: `<h3>🧱 Minecraft Education</h3>
+        <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Utenti: </strong>Oltre 170 milioni di utenti attivi mensili. Minecraft è il "primo amore" digitale per la fascia 7-11 anni.<p>
+        <p><strong>Piattaforme: </strong>Onnipresente su console, PC e tablet. La versione Bedrock permette ai bambini di giocare insieme indipendentemente dal dispositivo usato.<p>
+        <p><strong> </strong>  </p>
+        <h4>Privacy & Dati</h4>
+        <p>Essendo un prodotto dell'ecosistema Microsoft, la gestione dei dati è centralizzata tramite l'Account Microsoft.<p>
+        <p><strong>Telemetria di gioco: </strong>Microsoft raccoglie dati su quanto tempo il bambino gioca, quali modalità preferisce e con quali "amici" interagisce più spesso.<p>
+        <p><strong>Profilazione incrociata: </strong>Se il bambino usa lo stesso account per Xbox, Windows o tablet, Microsoft crea un profilo utente unificato che tiene traccia degli interessi digitali del minore.<p>
+        <p><strong>Contenuti della chat: </strong>Nei server multiplayer e nei "Realms", i messaggi vengono filtrati e registrati per scopi di sicurezza e moderazione.<p>
+        <p><strong>Geolocalizzazione: </strong>Viene rilevata la posizione approssimativa tramite l'indirizzo IP per collegare il giocatore ai server regionali più vicini.</p>
+        <h4>Rischi e contromisure</h4>
+        <p><strong>Griefing: </strong>consiste nell'atto di altri giocatori che entrano nel mondo del bambino per distruggere intenzionalmente le sue costruzioni. Per un bambino di 8-10 anni che ha investito ore in un progetto, questo atto può essere vissuto con malessere.<p>
+        <p><strong>Server Multiplayer Non Protetti: </strong>Oltre ai server ufficiali, esistono migliaia di server privati creati da utenti. Qui la moderazione è spesso assente e il bambino può incontrare adulti o adolescenti che usano un linguaggio volgare o tentano adescamenti.<p>
+        <p><strong>Mod e Skin: </strong>Come su Fortnite, anche qui esiste il desiderio di avere skin rare o di installare "Mod" (modifiche al gioco). Spesso i bambini scaricano file da siti non sicuri, esponendo i dispositivi a malware o virus.</p>
+        <h4>Parental Control</h4>
+        <p><strong>Uso dei realms: </strong>Se il bambino vuole giocare con gli amici di scuola, la soluzione più sicura è acquistare un Realm (un server privato gestito da voi) dove l'ingresso è permesso solo a chi viene invitato dal genitore.<p>
+        <p><strong>Filtro chat: </strong>Attivare sempre il filtro per i contenuti volgari nelle impostazioni di gioco.<p>
+        <p><strong>Impostazione limiti di tempo: </strong>Impostare una "finestra di gioco" (es. dalle 16:00 alle 17:00) tramite l'app Family Safety; al termine del tempo, il gioco si chiude automaticamente su tutti i dispositivi.</p>
+        <h4>Sapevi che esiste una versione education di Minecraft?</h4>
+        <p>Minecraft Education è una versione del gioco sviluppata specificamente per l'uso scolastico e accademico. A differenza della versione commerciale (Bedrock o Java), questa è progettata per essere gestita da un docente o un educatore in un ambiente controllato e protetto.</p>
+        <p>Mentre il Minecraft tradizionale è focalizzato sulla sopravvivenza e sull'intrattenimento, la versione Education introduce strumenti nuovi<p>
+        <p>Modalità Classe: L'insegnante ha una mappa centralizzata. Può teletrasportare gli studenti, bloccare l'uso di dinamite (TNT) o gestire il meteo per non distrarre la classe.</p>
+        <p>Chimica Integrata: Esiste un "Costruttore di Elementi" dove i bambini possono creare molecole vere (es. combinare Idrogeno e Ossigeno per fare l'acqua) e vedere le reazioni chimiche.<p>
+        <p>Il Robot "Agent": Ogni studente ha un piccolo robot programmabile all'interno del gioco. Si impara il Coding (JavaScript o blocchi tipo Scratch) impartendo comandi al robot per costruire strutture complesse.<p>
+        <p>Fotocamera e Portfolio: Gli studenti possono scattare foto alle loro opere nel gioco e scrivere un "diario di bordo" per documentare ciò che hanno imparato, esportandolo poi come PDF per l'insegnante.</p>`,
+        
+        youtube: `<h3>📺 YouTube & Salute Mentale</h3>
+        <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Diffusione: </strong>Oltre 2.7 miliardi di utenti mensili. È la piattaforma preferita dai bambini per l'intrattenimento.<p>
+        <p><strong>Target: </strong>Universale. Per i 9 anni, il profilo ideale è la modalità "Esplora" (contenuti adatti a 9+ anni).<p>
+        <p><strong>Contenuti: </strong>Tutorial, gameplay di videogiochi, cartoni animati, vlog e i popolari YouTube Shorts (video brevi e molto coinvolgenti).</p>
+        <h4>Dati e Privacy</h4>
+        <p><strong>Come funziona: </strong>Google (proprietaria di YouTube) utilizza algoritmi sofisticati per tracciare gli interessi e proporre video simili.<p>
+        <p><strong>Dati tracciati: </strong>Cronologia delle ricerche, video guardati, tempo di permanenza su un video, posizione geografica approssimativa e dati del dispositivo.<p>
+        <p><strong>Nota legale: </strong>A seguito di recenti accordi legali (2026), YouTube ha limitato drasticamente la pubblicità personalizzata sui contenuti per bambini, ma il tracciamento tecnico per il funzionamento dell'algoritmo rimane attivo.</p>
+        <h4>Fase tween</h4>
+        <p>Esporre un bambino come protagonista di video su YouTube emulando gli influencer comporta diversi rischi che vanno oltre la semplice gestione tecnica dell'account.<p>
+        <p><strong>Dipendenza da like e commenti: </strong>L'emulazione degli influencer sposta il valore del bambino dal "sé reale" al "sé digitale". La ricerca ossessiva di approvazione tramite like può generare ansia da prestazione e un senso di fallimento se i numeri non raggiungono le aspettative.<p>
+        <p><strong>Confronto sociale e autostima: </strong>Il confronto costante con standard di bellezza e successo irreali (spesso filtrati o costruiti) può portare a una profonda insoddisfazione per la propria vita quotidiana, aumentando il rischio di sintomi depressivi e isolamento sociale già in età prepuberale.<p>
+        <p><strong>Sovrastimolazione e soglia di attenzione: </strong>La fruizione e creazione di contenuti brevi (come gli Shorts) basati sulla gratificazione istantanea altera i circuiti della dopamina. Questo può causare irritabilità, difficoltà di concentrazione e una "fame" di stimoli digitali che sottrae spazio al riposo e alla riflessione.</p>
+        <h4>Rischi e contromisure</h4>
+        <p><strong>Algoritmo "Rabbit Hole": </strong>L'algoritmo è progettato per tenere l'utente incollato. Un bambino può passare da un video educativo a contenuti inappropriati o bizzarri in pochi clic. Attivare la "Modalità con Supervisione" (impostazione "Esplora") o utilizzare l'app YouTube Kids, che applicano filtri sui contenuti e limitano la possibilità per l'algoritmo di proporre video inappropriati in pochi clic.<p>
+        <p><strong>YouTube Shorts: </strong>Stabilire limiti di tempo quotidiani chiari attraverso strumenti di Parental Control per bilanciare la gratificazione istantanea dei video brevi e proteggere la soglia di attenzione del bambino.<p>
+        <p><strong>Challenges: </strong>Sviluppare il pensiero critico ponendo domande come "Perché questo video ci suggerisce proprio questa sfida?", aiutando il bambino a distinguere tra un gioco sicuro e un comportamento rischioso emulato solo per ottenere popolarità. Disincentivare la visione di questo tipo di contenuti attraverso queste riflessioni.
+        <p><strong>Commenti: </strong>Monitorare la navigazione privilegiando le versioni protette che disabilitano o filtrano i commenti, evitando così l'esposizione a linguaggio volgare o potenziali episodi di cyberbullismo. </p>`,
+       
+        tiktok: `<h3>🎵 TikTok: Algoritmo Attenzione</h3>
+        <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Utenti: </strong>Oltre 1.8 miliardi di utenti attivi mensili. In Italia, si stima che il 45% dei bambini di 9-10 anni utilizzi TikTok con regolarità, spesso tramite account "fantasma" o dispositivi dei genitori.<p>
+        <p><strong>Tempo medio: </strong>È l'app con il coinvolgimento più alto; un utente medio trascorre sulla piattaforma oltre 95 minuti al giorno.</p>
+        <h4>Dati e Privacy</h4>
+        <p><strong>Profilazione algoritmica: </strong>TikTok non traccia solo ciò che "metti like", ma analizza quanto tempo ti soffermi su un video, se lo riguardi e persino la velocità con cui scorri (scrolli). Questo crea un profilo psicologico e di interessi incredibilmente preciso.<p>
+        <p><strong>Dati Biometrici: </strong>I filtri (quelli che cambiano il viso o aggiungono trucco) mappano i tratti somatici del bambino. Nel 2026, la piattaforma ha introdotto sistemi di AI per stimare l'età proprio analizzando i tratti del volto durante l'uso.<p>
+        <p><strong>Geolocalizzaione e metadati: </strong>Viene registrata la posizione (tramite IP e GPS), il tipo di dispositivo e la rete Wi-Fi utilizzata.</p>
+        <h4>Fase tween</h4>
+        <p><strong>Caccia al like: </strong>Il bambino vede i "Like" come una misura del proprio valore. Se un video non riceve visualizzazioni, lo vive come un rifiuto personale.<p>
+        <p><strong>Emulazione degli idoli: </strong>Tendono a copiare balletti, modi di parlare e stili di vita di influencer che spesso hanno 10 o 20 anni più di loro, saltando tappe evolutive fondamentali. </p>
+        <h4>Rischi e contromisure</h4>
+        <p><strong>Soglia di attenzione: </strong>La velocità dei video causa una sovrastimolazione della dopamina. Questo riduce drasticamente la capacità dei bambini di concentrarsi su attività lente (come leggere o studiare) e aumenta l'irritabilità quando si smette di usare l'app.<p>
+        <p><strong>Distorsione dell'immagine corporea: </strong>L'uso costante di "Beauty Filters" che levigano la pelle e ingrandiscono gli occhi può portare i pre-adolescenti a provare insoddisfazione per il proprio viso reale, alimentando rischi di dismorfofobia.<p>
+        <p><strong>Challenges: </strong>L'algoritmo può talvolta premiare video di "sfide" (challenges) rischiose. Un bambino di 8-10 anni potrebbe emulare comportamenti pericolosi solo per ottenere visualizzazioni e sentirsi "approvato" dalla community.<p>
+        <p><strong>Adescamento e Direct Messages: </strong>Nonostante i blocchi, i malintenzionati possono tentare di contattare i minori commentando i loro video o scrivendo in privato se il profilo non è correttamente blindato.</p>
+        <h4>Parental Control</h4>
+        <p><strong>Abbinamento account: </strong>Devi collegare il tuo account TikTok a quello di tuo figlio. Non serve che tu sia attivo, basta che l'app sia installata.<p>
+        <p><strong>Gestione del tempo: </strong>Puoi impostare un limite massimo (es. 40 minuti al giorno) direttamente dal tuo telefono.<p>
+        <p><strong>Modalità limitata: </strong>Filtra automaticamente i contenuti che il sistema ritiene inappropriati per i minori.<p>
+        <p><strong>Privacy dei messaggi: </strong>Puoi decidere chi può inviare messaggi a tuo figlio o disabilitare completamente la chat.<p>
+        <p><strong>Ricerca: </strong>Puoi impedire che il bambino cerchi utenti o hashtag specifici.</p>`,
+        
+        instagram: `<h3>📸 Instagram: La Vetrina</h3>
+        <h4>Statistiche dati e Utenti</h4>
+        <p><strong>Utenti: </strong>Oltre 2.2 miliardi di utenti attivi.Nonostante il limite legale (14 anni in Italia), si registra un aumento di profili "gestiti dai genitori" (ma usati dai figli) già a partire dagli 8-9 anni per scopi di sharenting o micro-influencing.<p>
+        <p><strong>Tendenze: </strong>Il consumo di Reels occupa ormai l'80% del tempo speso sull'app dalla fascia giovane.</p>
+        <h4>Dati e Privacy</h4>
+        <p>Instagram fa parte dell'ecosistema Meta; i dati raccolti vengono incrociati con Facebook e WhatsApp per creare un'identità commerciale completa.<p>
+        <p><strong>Analisi degli interessi: </strong>L'algoritmo analizza non solo cosa "clicchi", ma su quali immagini ti soffermi più a lungo (anche senza interagire).<p>
+        <p><strong>Mappatura facciale: </strong>I filtri AR (realtà aumentata) mappano costantemente la struttura del volto. Nel 2026, Meta ha potenziato questi dati per affinare i propri modelli di Intelligenza Artificiale.<p>
+        <p><strong>Geolocalizzazione: </strong>Ogni foto o storia pubblicata porta con sé metadati sulla posizione, a meno di una disattivazione manuale profonda.<p>
+        <p><strong>Account teen: </strong>Meta ha introdotto gli "Account Teen" obbligatori per i minori: i profili sono privati di default e la messaggistica è limitata.</p>
+        <h4>Fase Tween</h4>
+        <p><strong> </strong>  <p>
+        <p><strong> </strong>  <p>
+        <p><strong> </strong>  </p>
+        <h4>Rischi e contromisure</h4>
+        <p><strong>Confronto sociale corrosivo: </strong>Vedere coetanei (o poco più grandi) apparentemente sempre felici, in vacanza o con vestiti nuovi genera un senso di inadeguatezza. Il bambino inizia a misurare la propria felicità in base a quella (finta) degli altri.<p>
+        <p><strong>Cyberbullismo: </strong>I Messaggi Diretti sono il luogo più pericoloso. Qui possono arrivare insulti, critiche pesanti o richieste inappropriate da parte di sconosciuti che riescono a bypassare i filtri<p>
+        <p><strong>Distorsione estetica: </strong>L'abitudine a vedersi "corretti" dai filtri (pelle liscia, occhi grandi) può creare un distacco traumatico con lo specchio reale, alimentando ansia e insicurezza cronica.</p>
+        <h4>Parental Control</h4>
+        <p><strong>Supervisione: </strong>Permette di vedere chi segue tuo figlio e da chi è seguito (senza però leggere i suoi messaggi privati, per rispettare una quota di privacy). Ricevi una notifica se tuo figlio prova a cambiare le impostazioni di privacy da "Privato" a "Pubblico".<p>
+        <p><strong>Limiti giornalieri e pause: </strong>Puoi impostare un blocco automatico dopo un certo tempo (es. 30 minuti).Blocca l'app dalle 21:00 alle 07:00 per garantire il riposo.<p>
+        <p><strong>Modalità silenziosa: </strong> Disattiva le notifiche in orario scolastico o durante i compiti. </p>`,
+        
+        navigare: `<h3>🤝 Navigare Insieme</h3>
+        <h4>Identità Digitale vs. Proprietà Tecnica</h4>
+        <p>Perché queste schede informative?<p>
+        <p><strong>Identità Digitale vs. Proprietà Tecnica: </strong>Spesso pensiamo che un account "a nome del genitore" sia una protezione sufficiente. Tuttavia, per gli algoritmi e per il pubblico, ciò che conta è chi appare nel video, non chi ha registrato l'email. L'impronta digitale che creiamo oggi per i nostri figli rimarrà per sempre.<p>
+        <p><strong>Dalla Realtà Virtuale al Mondo Reale: </strong>Il confine tra online e offline è sempre più sottile. Invitare follower o sconosciuti a incontri fisici (anche per motivi ludici o educativi) espone i minori a rischi di geolocalizzazione e contatto che vanno oltre il controllo di un filtro famiglia.<p>
+        <p><strong>Consapevolezza degli Strumenti: </strong>Roblox e YouTube non sono solo "contenitori di video o giochi", ma ecosistemi sociali complessi. Capire come funzionano ci permette di educare i nostri figli a un uso critico, evitando che diventino involontariamente vulnerabili.<p>
+        <p><strong>Il ruolo del genitore: </strong>Il nostro compito non è solo monitorare, ma fare da filtro. Queste schede servono a fornirvi i dati tecnici necessari per impostare limiti di privacy corretti e per dialogare con i bambini sui pericoli della sovraesposizione.</p>
+        <h4>Favorire lo sviluppo del Pensiero Critico</h4>
+        <p>A questa età, i bambini iniziano a passare dal pensiero concreto a quello astratto. Non serve vietare, serve insegnare a dubitare.<p>
+        <p><strong>La tecnica del "Perché secondo te?" </strong>Se guardate un video insieme, chiedi: "Perché questo YouTuber urla così tanto?" o "Perché ci suggerisce proprio questo gioco?". Aiutalo a capire che dietro ogni contenuto c'è un obiettivo (visite, vendite, popolarità).<p>
+        <p><strong>Smontare la "Perfezione": </strong>Mostra come un filtro può cambiare un volto o come un video di Roblox sia montato per sembrare più divertente di quanto non sia. Insegnagli che l'online è una scelta di momenti, non la realtà completa.<p>
+        <p><strong>Analisi delle intenzioni: </strong>Se un utente in chat regala "oggetti rari", chiedi al bambino: "Cosa potrebbe volere in cambio?". Allena il suo istinto a riconoscere che nel mondo digitale (come in quello reale) non tutto è un regalo disinteressato.</p>
+        <h4>Cosa prevede la legge italiana?</h4>
+        <p>In Italia, la normativa di riferimento è il D.Lgs. 101/2018 (che ha adeguato il GDPR europeo) e le recenti integrazioni sulla sicurezza dei minori online. <p>
+        <p>Nota importante: Sebbene le piattaforme (Roblox/YouTube) permettano l'accesso dai 13 anni (standard USA), la legge italiana è più restrittiva (14 anni per l'autonomia). Sotto i 14 anni, il genitore deve essere il "gestore" attivo dell'esperienza digitale.<p>
+        <p><strong>Età per il consenso: </strong>In Italia la "maggiore età digitale" è fissata a 14 anni. Sotto questa età, un minore non può legalmente iscriversi a un social senza il consenso dei genitori.<p>
+        <p><strong>Responsabilità genitoriale: </strong>Se un genitore crea un account a proprio nome per un figlio di 9 anni, ne assume la piena responsabilità civile e penale per i contenuti pubblicati e le azioni compiute dal minore.<p>
+        <p><strong>Privacy e Volto </strong>Pubblicare il volto di un minore (sharenting) richiede il consenso di entrambi i genitori. Se i video espongono il bambino a rischi, il tribunale può intervenire per limitare la pubblicazione.<p>
+       `,
+       
+        biblio: `<h3>📚 Bibliografia </h3>
+        
+               <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -323,68 +553,62 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        
-        <button class="btn" onclick="showPage('reveal')">Vai all'esperimento finale</button>
-    </div>
-</section>
-    <section id="reveal">
-        <div id="reveal-zone">
-            <h1>Reveal</h1>
-            <p>Ecco cosa hai condiviso con noi semplicemente leggendo questa guida.</p>
-            <div class="data-grid">
-                <div class="data-item">
-                    <span class="data-label">DEVICE</span>
-                    <div id="d-dev" class="data-val">---</div>
-                </div>
-                <div class="data-item">
-                    <span class="data-label">CITY / LOCATION</span>
-                    <div id="d-loc" class="data-val">Detecting...</div>
-                </div>
-                <div class="data-item">
-                    <span class="data-label">TIME ON SITE</span>
-                    <div id="d-time" class="data-val">0s</div>
-                </div>
-            </div>
-            <p style="opacity: 0.6;">Se un semplice sito a scopo educativo rileva questo in 2 minuti, immagina cosa possono sapere le piattaforme che usano i tuoi figli dopo anni.</p>
-        </div>
-    </section>
-</main>
+        </div>`,
+       
+        patto: `<h3>📜 Il Nostro Patto Digitale</h3>
+       
+                <h4>🛡️L'impegno del Bambino </h4>
+                <ul>
+                    <li><strong>Privacy Garantita:</strong> Non pubblicheremo tue foto o video sui social. La tua immagine è tua e la proteggiamo noi.</li>
+                    <li><strong>Guida, non spionaggio:</strong> Non leggeremo i tuoi messaggi se rispetti i patti.</li>
+                    <li><strong>Buon esempio:</strong> Niente telefoni a tavola o nei nostri momenti speciali.</li>
+                    <li><strong>Guida, non spionaggio:</strong> Non leggeremo i tuoi messaggi se rispetti i patti.</li>
+                    <li><strong>Buon esempio:</strong> Niente telefoni a tavola o nei nostri momenti speciali.</li>
+                </ul>
 
-<footer>
-    <div class="footer-content">
-        <p><strong>LIBERATORIA:</strong> I dati del reveal sono elaborati tramite API pubbliche (ipapi.co) e non vengono salvati su server. Questa funzione ha scopo puramente didattico.</p>
-        <p>Proteggere la privacy dei minori significa garantire una crescita consapevole in un ambiente sicuro.</p>
-        <p>© 2026 HOURSKIDZ Progetto Genitori Digitali.</p>
-    </div>
-</footer>
+                <h4>🤝 L'impegno dei Genitori </h4>
+                <ul>
+                    <li><strong>Non ti spio, ma ti guido: </strong> Non leggeremo i tuoi messaggi di nascosto se rispetti i patti, ma guarderemo insieme i video e i giochi che ti piacciono.</li>
+                    <li><strong>Ti ascoltiamo: </strong> Se ci segnali un problema o un errore che hai commesso, non ti toglierò lo strumento, ma cercheremo insieme una soluzione.</li>
+                    <li><strong>Diamo il buon esempio: </strong>  Anche noi metteremo via il telefono durante i pasti e nei momenti che passiamo insieme.</li>
+                    <li><strong>Proteggiamo la tua immagine: </strong>Ci impegniamo a non pubblicare tue foto, video o informazioni che ti riguardano sui nostri social. La tua privacy è sacra e non creeremo contenuti su di te senza il tuo esplicito consenso, per proteggere il tuo futuro digitale.</li>
+                    <li><strong>Ci impegniamo a ritagliarci un momento mensile (il nostro 'Tech-Time') per scambiarci scoperte: </strong> tu ci mostri come funziona un nuovo livello o un trucco su Roblox, e noi ti aiutiamoo a capire come quell'app guadagna o come proteggere i tuoi dati. Non è un controllo, è un allenamento di squadra per diventare esperti.</li>
+                </ul>
 
-<script>
-    function showPage(id) {
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo(0,0);
-        if(id === 'reveal') runReveal();
+                <h4>🎓 Semaforo del tempo</h4>
+                <p>Abbiamo capito che l'iPad serve a tante cose diverse, quindi proponiamo di dividere il tempo così:<p>
+                <p>TEMPO Gioco: È il tempo del divertimento puro. Ha un limite massimo di [      ] minuti al giorno estensibile quando il tempo è condiviso in presenza o in call con gli amici. Quando scatta il timer, chiudo senza protestare.<p>
+
+                <p>TEMPO Progetto: Compiti, ricerche, coding, disegno digitale o lettura. È il tempo della creazione. Questo tempo è flessibile e non viene scalato dal "Tempo Rosso", a patto che l'obiettivo sia davvero rispettato.</p>
+                
+                                <h4>ZONE SCREEN-FREE</h4>
+                <p>A tavola durante i pasti.
+                <p>In camera da letto dopo le ore [     ].<p>
+                <p>Almeno un'ora prima di andare a dormire.</p>
+                
+                <button class="btn-pdf" onclick="window.print()">Genera PDF / Stampa Patto</button>
+                <p style="font-size:0.9rem; margin-top:10px;"></p>`
+    };
+
+    function openModal(key) {
+        document.getElementById('modalBody').innerHTML = content[key];
+        document.getElementById('infoModal').style.display = "block";
+        document.body.style.overflow = 'hidden';
     }
-
-    let start = Date.now();
-    function runReveal() {
-        document.getElementById('d-dev').innerText = navigator.platform;
-        
-        fetch('https://ipapi.co/json/')
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('d-loc').innerText = `${data.city}, ${data.country_name}`;
-            })
-            .catch(() => {
-                document.getElementById('d-loc').innerText = "Italia (IP Locale)";
-            });
-
-        setInterval(() => {
-            document.getElementById('d-time').innerText = Math.floor((Date.now() - start)/1000) + "s";
-        }, 1000);
+    function closeModal() { 
+        document.getElementById('infoModal').style.display = "none"; 
+        document.body.style.overflow = 'auto';
     }
+    window.onclick = function(e) { if(e.target == document.getElementById('infoModal')) closeModal(); }
+
+    fetch('https://ipapi.co/json/').then(r => r.json()).then(d => {
+        document.getElementById('u-ip').innerText = d.ip;
+        document.getElementById('u-city').innerText = d.city + ", " + d.country;
+        document.getElementById('u-dev').innerText = navigator.userAgent.split(' ')[0];
+    });
 </script>
+
+<script data-goatcounter="https://genitoridigitali.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
