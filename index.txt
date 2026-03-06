@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genitori Digitali 2026 | Guida alla Consapevolezza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --viola: #6b21a8;
+            --arancio: #f97316;
+            --crema: #fefce8;
+            --nero: #1a1a1a;
+            --bianco: #ffffff;
+            --verde: #22c55e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Space Grotesk', sans-serif; background-color: var(--crema); color: var(--nero); line-height: 1.4; overflow-x: hidden; }
+        
+        /* HEADER - STILE STICKER RIDOTTO */
+        header { 
+            background: var(--viola); 
+            color: var(--bianco); 
+            padding: 80px 40px; 
+            /* Bordo ridotto da 10px a 5px */
+            border-bottom: 5px solid var(--nero);
+            text-align: left;
+        }
+        
+        .claim-box {
+            background: var(--arancio);
+            color: var(--bianco);
+            display: inline-block;
+            padding: 10px 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+            /* Bordo ridotto da 4px a 2px */
+            border: 2px solid var(--nero);
+            margin-bottom: 20px;
+            /* Ombra ridotta da 8px a 4px */
+            box-shadow: 4px 4px 0 var(--nero);
+        }
+
+        h1 { font-size: 4.5rem; line-height: 0.9; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -2px; }
+        .subtitle { font-size: 1.5rem; font-weight: 300; opacity: 0.9; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        /* TITOLI SEZIONE */
+        h2 { 
+            font-size: 3rem; 
+            color: var(--nero); 
+            margin: 60px 0 30px; 
+            text-transform: uppercase; 
+            background: var(--bianco);
+            display: inline-block;
+            padding: 5px 15px;
+            /* Bordo ridotto da 5px a 2.5px */
+            border: 2.5px solid var(--nero);
+            box-shadow: 8px 8px 0 var(--arancio);
+        }
+
+        /* CARD */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        
+        .card { 
+            background: var(--bianco); 
+            padding: 35px; 
+            /* Bordo ridotto da 6px a 3px */
+            border: 3px solid var(--nero); 
+            transition: 0.2s; 
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+        }
+        .card:nth-child(odd) { border-radius: 60px 0 60px 0; transform: rotate(1deg); }
+        .card:nth-child(even) { border-radius: 0 60px 0 60px; transform: rotate(-1deg); }
+        .card:hover { transform: rotate(0deg) scale(1.03); box-shadow: 15px 15px 0 var(--viola); }
+
+        .tag { 
+            background: var(--nero); 
+            color: var(--bianco); 
+            padding: 5px 12px; 
+            font-weight: 700; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            margin-bottom: 15px; 
+            width: fit-content; 
+        }
+
+        .btn-more { 
+            margin-top: 25px; 
+            background: var(--arancio); 
+            color: var(--bianco); 
+            /* Bordo ridotto da 4px a 2px */
+            border: 2px solid var(--nero); 
+            padding: 15px; 
+            font-family: inherit; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            cursor: pointer; 
+            /* Ombra ridotta da 5px a 3px */
+            box-shadow: 3px 3px 0 var(--nero);
+        }
+        .btn-more:hover { background: var(--viola); transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--nero); }
+
+        /* MODALE */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(107, 33, 168, 0.9); backdrop-filter: blur(10px); }
+        .modal-content { 
+            background: var(--crema); margin: 2% auto; padding: 50px; 
+            /* Bordo ridotto da 8px a 4px */
+            border: 4px solid var(--nero); 
+            width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; border-radius: 40px; position: relative;
+            /* Ombra ridotta da 20px a 10px */
+            box-shadow: 10px 10px 0 var(--nero);
+        }
+        .close { position: absolute; right: 25px; top: 10px; font-size: 60px; cursor: pointer; color: var(--nero); font-weight: 700; }
+        .modal-body h3 { font-size: 3rem; color: var(--viola); text-transform: uppercase; margin-bottom: 20px; line-height: 1; }
+        .modal-body h4 { background: var(--arancio); color: #fff; display: inline-block; padding: 5px 10px; margin: 25px 0 10px; text-transform: uppercase; }
+        .modal-body p, .modal-body li { font-size: 1.2rem; margin-bottom: 15px; }
+        .modal-body a { color: var(--viola); font-weight: 700; text-decoration: none; border-bottom: 3px solid var(--arancio); }
+
+        /* TASTO PDF NEL PATTO */
+        .btn-pdf {
+            background: var(--verde);
+            color: white;
+            /* Bordo ridotto da 4px a 2px */
+            border: 2px solid var(--nero);
+            padding: 15px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 30px;
+            /* Ombra ridotta da 6px a 3px */
+            box-shadow: 3px 3px 0 var(--nero);
+        }
+
+        /* REVEAL & FOOTER */
+        footer { background: var(--nero); color: var(--bianco); padding: 80px 40px; margin-top: 100px; }
+        #reveal-box { background: #111; padding: 30px; border: 3px solid #0f0; font-family: monospace; color: #0f0; font-size: 1.1rem; margin: 30px 0; line-height: 1.8; }
+
+        /* PRINT STYLES */
+        @media print {
+            body * { visibility: hidden; }
+            #modalBody, #modalBody * { visibility: visible; }
+            #modalBody { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; background: white !important; }
+            .btn-pdf, .close { display: none !important; }
+            h4 { color: black !important; border: 1px solid black; padding: 5px; }
+        }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="claim-box">Navigare sicuri nel mondo digitale</div>
+    <h1>Genitori<br>Digitali</h1>
+    <p class="subtitle">Comprendere il presente per proteggere il loro futuro.</p>
+</header>
+
+<div class="container">
+    
+    <section id="home">
+        <div style="background: var(--bianco); border: 3px solid var(--nero); padding: 40px; border-radius: 40px; box-shadow: 8px 8px 0 var(--arancio);">
+            <h2 style="margin-top: 0; font-size: 2rem; border: none; box-shadow: none; padding: 0;">Perché siamo qui?</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 20px;">Spesso pensiamo che un account "a nome del genitore" sia una protezione sufficiente. Tuttavia, per gli algoritmi e per il pubblico, <strong>ciò che conta è chi appare nel video</strong>. L'impronta digitale che creiamo oggi per i nostri figli rimarrà per sempre.</p>
+            <p>Questa guida serve a fornirvi i dati tecnici per impostare limiti di privacy corretti e per dialogare sui pericoli della sovraesposizione.</p>
+        </div>
+    </section>
+
+    <h2>🕹️ Area Giochi</h2>
+    <div class="grid">
+        <article class="card">
+            <span class="tag">Roblox Corp</span>
+            <h3>Roblox</h3>
+            <p>Avatar, Robux e mondi infiniti. Scopri come gestire l'identità digitale nel metaverso.</p>
+            <button class="btn-more" onclick="openModal('roblox')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Supercell</span>
+            <h3>Brawl Stars</h3>
+            <p>La sfida della competizione e dei "Club". Gestire la frustrazione a 9 anni.</p>
+            <button class="btn-more" onclick="openModal('brawl')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Epic Games</span>
+            <h3>Fortnite</h3>
+            <p>La nuova piazza sociale. Attenzione allo "Skin-shaming" e alla chat vocale.</p>
+            <button class="btn-more" onclick="openModal('fortnite')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Microsoft</span>
+            <h3>Minecraft</h3>
+            <p>Creatività e apprendimento. Il potenziale della versione Education Edition.</p>
+            <button class="btn-more" onclick="openModal('minecraft')">Scheda Integrale</button>
+        </article>
+    </div>
+
+    <h2>📱 Area Social</h2>
+    <div class="grid">
+        <article class="card">
+            <span class="tag">Google</span>
+            <h3>YouTube</h3>
+            <p>Dal Rabbit Hole degli Shorts alla gestione della privacy dei bambini protagonisti.</p>
+            <button class="btn-more" onclick="openModal('youtube')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">ByteDance</span>
+            <h3>TikTok</h3>
+            <p>L'algoritmo della dopamina. Come proteggere la soglia di attenzione.</p>
+            <button class="btn-more" onclick="openModal('tiktok')">Scheda Integrale</button>
+        </article>
+        <article class="card">
+            <span class="tag">Meta</span>
+            <h3>Instagram</h3>
+            <p>Confronto sociale e Reels. Gestire i nuovi Account Teen obbligatori 2026.</p>
+            <button class="btn-more" onclick="openModal('instagram')">Scheda Integrale</button>
+        </article>
+    </div>
+
+    <h2>🛠️ Strumenti</h2>
+    <div class="grid">
+        <article class="card" style="border-color: var(--verde);">
+            <span class="tag" style="background: var(--verde);">Firma il Patto</span>
+            <h3>Patto Digitale</h3>
+            <p>5 punti fondamentali per un'alleanza di fiducia tra genitori e figli.</p>
+            <button class="btn-more" onclick="openModal('patto')" style="background: var(--verde);">Apri e Stampa</button>
+        </article>
+        <article class="card">
+            <span class="tag">Strategie</span>
+            <h3>Navigare Insieme</h3>
+            <p>Metodologie pedagogiche per trasformare il controllo in dialogo.</p>
+            <button class="btn-more" onclick="openModal('navigare')">Leggi Strategie</button>
+        </article>
+        <article class="card">
+            <span class="tag">Fonti</span>
+            <h3>Bibliografia</h3>
+            <p>Link ufficiali e normative aggiornate al 2026.</p>
+            <button class="btn-more" onclick="openModal('biblio')">Vedi Link</button>
+        </article>
+    </div>
+
+</div>
+
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody" class="modal-body"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="container" style="padding:0;">
+        <h3 style="color:var(--arancio); text-transform:uppercase;">🔎 Esperimento REVEAL</h3>
+        <p>Mentre consultavi questa guida, il tuo dispositivo ha comunicato questi dati:</p>
+        <div id="reveal-box">
+            > INDIRIZZO IP: <span id="u-ip">Rilevamento...</span><br>
+            > LOCALITÀ: <span id="u-city">Rilevamento...</span><br>
+            > DISPOSITIVO: <span id="u-dev">Rilevamento...</span><br>
+            > STATO: Navigazione monitorata per scopi educativi.
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.5;">Dati non salvati. Responsabilità civile ex Art. 2048 c.c.</p>
+    </div>
+</footer>
+
+<script>
+    const content = {
+        roblox: `<h3>🤖 Roblox: Deep Dive</h3><h4>Privacy & Dati 2026</h4><p>Roblox traccia ogni interazione. Dal 2026, usa AI per monitorare le chat vocali e stimare l'età. Raccoglie dati d'acquisto e stili di gioco.</p><h4>Rischi 8-10 anni</h4><p><strong>Predatory Design:</strong> Pressione sociale per acquistare Robux e "non essere da meno" degli amici.</p><h4>Parental Control</h4><p>Attivare il PIN Genitore per bloccare le impostazioni di sicurezza.</p>`,
+        brawl: `<h3>🌵 Brawl Stars: La Competizione</h3><h4>Fase Tween</h4><p>A 9 anni, i "Club" sono la nuova ricreazione. La perdita di trofei può causare crisi di rabbia ("Tilt").</p><h4>Parental Control</h4><p>Impostare 9 anni al primo avvio e bloccare acquisti in-app dal sistema operativo.</p>`,
+        fortnite: `<h3>🎮 Fortnite: Piazza Sociale</h3><h4>Skin-Shaming</h4><p>I "Default" (senza skin) vengono spesso isolati. L'immagine conta più del gioco.</p><h4>Azione</h4><p>Impostare chat vocale su "Solo Amici" e attivare "Account Limitati".</p>`,
+        minecraft: `<h3>🧱 Minecraft Education</h3><h4>Uso Scolastico</h4><p>Ambiente protetto senza microtransazioni. Ideale per imparare coding e chimica (es. Mondadori Education).</p><h4>Rischi</h4><p>Griefing (distruzione opere altrui). Usare "Realms" privati per giocare con i compagni.</p>`,
+        youtube: `<h3>📺 YouTube & Salute Mentale</h3><h4>Rabbit Hole</h4><p>Gli Shorts creano dipendenza da dopamina e calo dell'attenzione. I commenti possono minare l'autostima dei bambini protagonisti.</p><h4>Controllo</h4><p>Usare "Esperienza Supervisionata" per disabilitare i commenti pubblici.</p>`,
+        tiktok: `<h3>🎵 TikTok: Algoritmo Attenzione</h3><h4>Immagine Corporea</h4><p>Filtri AI che alterano il sé reale. Rischio di insoddisfazione estetica a 9 anni.</p><h4>Parental Control</h4><p>Usare "Collegamento Familiare" per bloccare l'app dopo 40 minuti.</p>`,
+        instagram: `<h3>📸 Instagram: La Vetrina</h3><h4>Account Teen 2026</h4><p>Profili privati di default e messaggistica limitata per minori. Attenzione all'ansia da confronto.</p><h4>Azione</h4><p>Rivedere la lista Follower ogni settimana insieme al bambino.</p>`,
+        navigare: `<h3>🤝 Navigare Insieme</h3><h4>Strategie Educative</h4><ul><li>🚀 <strong>Il Patto:</strong> Zone franche come la cena senza telefoni.</li><li>🎮 <strong>Co-Playing:</strong> Gioca con loro, fatti spiegare le loro passioni.</li><li>🧠 <strong>Critica l'AI:</strong> Spiega perché il computer propone certi video.</li></ul>`,
+        biblio: `<h3>📚 Bibliografia 2026</h3><ul><li>🔗 <a href="https://familycenter.meta.com/">Meta Family Center</a></li><li>🔗 <a href="https://www.epicgames.com/site/it/parental-controls">Epic Safety</a></li><li>🔗 <a href="https://www.generazioniconnesse.it/">Generazioni Connesse</a></li><li>🔗 <a href="https://www.garanteprivacy.it/temi/minori">Garante Privacy</a></li></ul>`,
+        patto: `<h3>📜 Il Nostro Patto Digitale 2026</h3>
+                <p>Un'alleanza di fiducia per navigare sicuri e crescere insieme.</p>
+                
+                <h4>🛡️ L'impegno dei Genitori</h4>
+                <ul>
+                    <li><strong>Privacy Garantita:</strong> Non pubblicheremo tue foto o video sui social. La tua immagine è tua e la proteggiamo noi.</li>
+                    <li><strong>Guida, non spionaggio:</strong> Non leggeremo i tuoi messaggi se rispetti i patti.</li>
+                    <li><strong>Buon esempio:</strong> Niente telefoni a tavola o nei nostri momenti speciali.</li>
+                </ul>
+
+                <h4>🤝 L'impegno del Bambino</h4>
+                <ul>
+                    <li><strong>Trasparenza:</strong> Chiedo prima di scaricare app o registrarmi a nuovi siti.</li>
+                    <li><strong>Rispetto:</strong> Chiudo il gioco allo scadere del tempo senza protestare.</li>
+                    <li><strong>Gentilezza:</strong> Mai offendere o escludere i compagni online.</li>
+                    <li><strong>Segreti:</strong> Dico subito se vedo qualcosa di strano o ricevo messaggi sospetti.</li>
+                </ul>
+
+                <h4>🎓 Lo Scambio Formativo</h4>
+                <p>Ogni settimana faremo "Tech-Time": tu ci insegni i trucchi dei giochi e noi ti spieghiamo come proteggerti. Allenamento di squadra!</p>
+                
+                <button class="btn-pdf" onclick="window.print()">Genera PDF / Stampa Patto</button>
+                <p style="font-size:0.9rem; margin-top:10px;">(Firma il foglio e appendilo vicino alla tua postazione!)</p>`
+    };
+
+    function openModal(key) {
+        document.getElementById('modalBody').innerHTML = content[key];
+        document.getElementById('infoModal').style.display = "block";
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() { 
+        document.getElementById('infoModal').style.display = "none"; 
+        document.body.style.overflow = 'auto';
+    }
+    window.onclick = function(e) { if(e.target == document.getElementById('infoModal')) closeModal(); }
+
+    fetch('https://ipapi.co/json/').then(r => r.json()).then(d => {
+        document.getElementById('u-ip').innerText = d.ip;
+        document.getElementById('u-city').innerText = d.city + ", " + d.country;
+        document.getElementById('u-dev').innerText = navigator.userAgent.split(' ')[0];
+    });
+</script>
+
+<script data-goatcounter="https://genitoridigitali.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>
